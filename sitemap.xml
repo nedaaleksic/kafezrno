@@ -3,7 +3,7 @@
 <loc>https://nedaaleksic.github.io/kafezrno/index.html</loc>
 <lastmod>2025-09-15</lastmod>
 <changeFreq>daily</changeFreq>
-<priority>0.95</priority>
+<priority>1.0</priority>
 </url>
 <url>
 <loc>https://nedaaleksic.github.io/kafezrno/reservation.html</loc>
@@ -17,4 +17,5 @@
 <changeFreq>yearly</changeFreq>
 <priority>0.3</priority>
 </url>
+
 </urlset>
