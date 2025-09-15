@@ -4,7 +4,6 @@ $('.navbar-brand').click(function(e) {
     $('html, body').animate({scrollTop: 0}, 800);
 });
 
-
 /* JQUERY ZA PRIKAZ KONTAKT PODATAKA AUTORA */
 
 $(document).ready(function() {
@@ -141,57 +140,56 @@ document.addEventListener("DOMContentLoaded", () => {
 
 // DINAMIČKI ISPIS CENOVNIKA
 
-document.addEventListener("DOMContentLoaded", () => {
-  const breakfast = [
-    { name: "Palačinke", price: "450 RSD" },
-    { name: "Vafl", price: "550 RSD" },
-    { name: "Tortilja sa piletinom", price: "690 RSD" },
-    { name: "Sendvič sa pršutom", price: "550 RSD" },
-    { name: "Banana hleb", price: "690 RSD" }
-  ];
+const menuData = [
+    {
+        title: "Doručak",
+        items: [
+            { name: "Palačinke", price: "450 RSD" },
+            { name: "Vafl", price: "550 RSD" },
+            { name: "Tortilja sa piletinom", price: "590 RSD" },
+            { name: "Sendvič sa pršutom", price: "450 RSD" },
+            { name: "Banana hleb", price: "690 RSD" }
+        ]
+    },
+    {
+        title: "Kafa",
+        items: [
+            { name: "Crna Kafa", price: "190 RSD" },
+            { name: "Espresso", price: "220 RSD" },
+            { name: "Espresso sa mlekom", price: "250 RSD" },
+            { name: "Cappuccino", price: "270 RSD" },
+            { name: "Nes kafa", price: "270 RSD" }
+        ]
+    }
+];
 
-  const coffee = [
-    { name: "Crna Kafa", price: "190 RSD" },
-    { name: "Espresso", price: "220 RSD" },
-    { name: "Espresso sa mlekom", price: "250 RSD" },
-    { name: "Cappuccino", price: "270 RSD" },
-    { name: "Nes kafa", price: "270 RSD" }
-  ];
+const menuContainer = document.getElementById("menu-container");
+menuData.forEach(section => {
+    const col = document.createElement("div");
+    col.className = "col-lg-6 col-12 mb-4 mb-lg-0";
+    const wrap = document.createElement("div");
+    wrap.className = "menu-block-wrap";
+    const titleDiv = document.createElement("div");
+    titleDiv.className = "text-center mb-4 pb-lg-2";
+    titleDiv.innerHTML = `<h4 class="text-white">${section.title}</h4>`;
+    wrap.appendChild(titleDiv);
+    section.items.forEach((item, index) => {
+        const menuBlock = document.createElement("div");
+        menuBlock.className = "menu-block" + (index % 2 !== 0 ? " my-4" : "");
 
-  const breakfastContainer = document.getElementById("breakfast-menu");
-  const coffeeContainer = document.getElementById("coffee-menu");
-
-  if (breakfastContainer) {
-    breakfast.forEach(item => {
-      const html = `
-        <div class="menu-block${item.name === "Vafl" || item.name === "Sendvič sa pršutom" ? ' my-4' : ''}">
-          <div class="d-flex">
-            <h6>${item.name}</h6>
-            <span class="underline"></span>
-            <strong class="ms-auto">${item.price}</strong>
-          </div>
-          <div class="border-top mt-2 pt-2"></div>
-        </div>
-      `;
-      breakfastContainer.insertAdjacentHTML("beforeend", html);
+        menuBlock.innerHTML = `
+            <div class="d-flex">
+                <h6>${item.name}</h6>
+                <span class="underline"></span>
+                <strong class="ms-auto">${item.price}</strong>
+            </div>
+            <div class="border-top mt-2 pt-2"></div>
+        `;
+        wrap.appendChild(menuBlock);
     });
-  }
 
-  if (coffeeContainer) {
-    coffee.forEach(item => {
-      const html = `
-        <div class="menu-block${item.name === "Espresso" || item.name === "Cappuccino" ? ' my-4' : ''}">
-          <div class="d-flex">
-            <h6>${item.name}</h6>
-            <span class="underline"></span>
-            <strong class="ms-auto">${item.price}</strong>
-          </div>
-          <div class="border-top mt-2 pt-2"></div>
-        </div>
-      `;
-      coffeeContainer.insertAdjacentHTML("beforeend", html);
-    });
-  }
+    col.appendChild(wrap);
+    menuContainer.appendChild(col);
 });
 
 /* DINAMIČKI ISPIS RECENZIJA */
