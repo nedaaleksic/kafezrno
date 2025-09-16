@@ -63,7 +63,7 @@ document.addEventListener("DOMContentLoaded", () => {
     { href: "#", target: "_new", iconClass: "bi-instagram" },
     { href: "#", target: "_new", iconClass: "bi-whatsapp" },
     { href: "sitemap.xml", target: "_new", iconClass: "fa-solid fa-sitemap" },
-    { href: "Dokumentacija.png", target: "_new", iconClass: "fa-solid fa-book" }
+    { href: "Dokumentacija.pdf", target: "_new", iconClass: "fa-solid fa-book" }
   ];
 
   const container = document.getElementById("social-links");
@@ -253,3 +253,4 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 });
+
