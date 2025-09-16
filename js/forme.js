@@ -41,13 +41,11 @@ document.addEventListener("DOMContentLoaded", () => {
     successMessage.id = "successMessage";
     form.appendChild(successMessage);
   }
-
   form.addEventListener("submit", (e) => {
     e.preventDefault();
 
     // REGEX
-    const nameRegex = /^[A-Z][a-z]*(\s[A-Z][a-z]*)?$/;
-
+    const nameRegex = /^[A-ZŠĐČĆŽ][a-zšđčćž]+(?:\s[A-ZŠĐČĆŽ][a-zšđčćž]+)?$/;
     const emailRegex = /(@gmail\.com|@yahoo\.com|@ict\.edu\.rs)$/;
 
     const name = (nameInput && nameInput.value || "").trim();
@@ -97,7 +95,7 @@ document.getElementById("bookingForm").addEventListener("submit", function(e) {
     const number = document.getElementById("booking-form-number").value;
 
     // REGEX
-    const nameRegex = /^[A-Z][a-z]*(\s[A-Z][a-z]*)?$/;
+    const nameRegex = /^[A-ZŠĐČĆŽ][a-zšđčćž]+(?:\s[A-ZŠĐČĆŽ][a-zšđčćž]+)?$/;
     const phoneRegex = /^[0-9]{9,15}$/;
     const dateRegex = /^\d{4}-\d{2}-\d{2}$/;
     const numberRegex = /^[1-9][0-9]*$/;
@@ -159,4 +157,5 @@ if (!date) {
     } else {
         document.getElementById("bookingSuccess").innerText = "";
     }
+
 })
